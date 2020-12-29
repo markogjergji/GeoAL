@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 100%; height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=device-height, 
+                      width=device-width, initial-scale=1.0, 
+                      minimum-scale=1.0, maximum-scale=1.0, 
+                      user-scalable=no, target-densitydpi=device-dpi">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    {% load static %}
+    <link rel="shortcut icon" href="{% static '/geo/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/geo/mainStyle.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script type="text/javascript" src="{% static '/geo/gameinfo.js' %}"></script>
+
+    <title>GeoAl</title>
+</head>
+<body>
+
+    <div id = "bgImage"></div>
+
+    <div id = "lamp"><img src="{% static '/geo/lamp.png' %}"></div>
+    <div id = "flame"><img src="{% static '/geo/flame.gif' %}"></div>
+    <div id = "pole"><img src="{% static '/geo/pole.png' %}"></div>
+
+    <div id = "geoalSign"><img class = "rightSigns" src="{% static '/geo/geoalSign.png' %}"></div>
+
+    <div class = "leftSigns" id = "enterSign">
+        <img  src="{% static '/geo/leftSign.png' %}">
+        <input class="bottomText" type="text" maxlength="15" placeholder="Enter Username" id="enterUsername" autocomplete="off">
+        <i class="fa fa-arrow-right" id="arrow" style="display: none;"></i>
+    </div>
+
+    <div id = "singleplayer" class = "rightSigns" style="display: none;" >
+        <img  src="{% static '/geo/rightSign.png' %}">
+        <p id = "singleText">Singleplayer</p>
+    </div>
+
+    <div id = "multiplayer" style="display: none;" class = "leftSigns">
+        <img  src="{% static '/geo/leftSign.png' %}">
+        <p id = "multiText">Multiplayer</p>
+    </div>
+
+    <div id = "roundSign" class = "rightSigns" style="display: none;" >
+        <img  src="{% static '/geo/rightSign.png' %}">
+        <p>Rounds : 5</p>
+        <input type="range" min="1" max="5" value="5" step="1" id="roundRange" autocomplete="off">
+    </div>
+
+    <div id = "timeSign" class = "leftSigns" style="display: none;">
+        <img  src="{% static '/geo/leftSign.png' %}">
+        <p>No Time Limit</p>
+        <input type="range" min="0" max="4" value="0" step="1" id="timeRange" autocomplete="off">
+    </div>
+
+    <div id="startGame" style="display: none;">
+        <button id="startGameButton">Start Game</button>
+    </div>
+
+    <!-- <form method="post" action="{% url 'index' %}" >
+        {% csrf_token %}
+        <input type="submit" value = "SinglePlayer">
+        <input type="submit" value = "MultiPlayer">
+      </form> -->
+
+    <div id="rectangle">
+        <img src="{% static '/geo/bottomBar.png' %}"></div>
+    <div id="imgCon">
+        <img src="{% static '/geo/adventure.png' %}" id="adventurer">
+    </div>
+
+</body>
+</html>

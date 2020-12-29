@@ -1,0 +1,286 @@
+@font-face {
+    font-family: 'p5hatty';
+    src: URL('p5hatty.ttf') format('truetype');
+  }
+html,body {
+    font-family: 'p5hatty';
+    height: 100%;
+    width : 100%;
+    margin: 0;
+    padding: 0;
+    /*overflow-y: hidden;*/
+  }
+#map {
+    height: 88vh;
+    border-top-right-radius: 20px;
+    
+}
+#map * {
+    overflow:visible;
+}
+.moving,
+.moving * {cursor: crosshair !important;} 
+
+
+#bgImage{
+    will-change: transform;
+    background-image: url("bCity.png");
+    background-size: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 15vh;
+    width: 100vw;
+    animation: backgroundScroll 50s linear infinite;
+    -webkit-animation: backgroundScroll 50s linear infinite;
+}
+#topBar{
+    height: 14vh;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#logo{
+    background-image: url("logo.png");
+    width: 24vw;
+    height: 6vw;
+    position: absolute;
+    top: 58%;
+    left: 16%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    /* background-size: 213px 70px; */
+    background-size: 15vw 5vw;
+}
+
+.cards{
+    width: 9vw;
+    height: 12vh;
+    position: absolute;
+    border: 1px solid #37dbba;
+    border-radius:7px;
+    -webkit-box-shadow: 0px 11px 0px -4px rgba(0,0,0,0.7);
+    box-shadow: 0px 8px 6px -4px rgba(0,0,0,1.7);
+    white-space: pre-line;
+    line-height: 6.2vh;
+    text-shadow: 2px 2px 0px black;
+    padding-left: 5px;
+    color: white;
+}
+
+#username{
+    top: 3%;
+    left: 65%;
+    background-image: url("road.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#round{
+    top:3%;
+    left: 85%;
+    background-image: url("road.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#time{
+    top:3%;
+    left: 75%;
+    background-image: url("road.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#startPosition{
+    position: absolute;
+    top: 12%;
+    width: 43px;
+    height: 43px;
+    left: 95.4%;
+    background-image: url("flag.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    z-index: 6;
+}
+#startPosition:hover{
+    cursor: pointer;
+}
+#startPosition:focus{
+    outline: none;
+}
+
+button{
+    border:none;
+    background-color:white;
+   padding:1.5vw 4.5vw;
+    font-size:30px;
+    border-radius:40px;
+    outline: none;
+    transition: transform .05s ease-in-out,background-color .1s ease;
+}
+button:hover{
+    background-color:rgb(212, 207, 207);
+    cursor: pointer;
+}
+button:active {
+    position: absolute;
+    top:53%;
+}
+#makeGuess{
+    position: absolute;
+    width: 14vw;
+    height: 12vh;
+    right: 5vw;
+    bottom: 4vh;
+    padding: 10px;
+}
+
+#makeGuessButton{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 0px 5px 11px -4px rgb(0 0 0);
+    box-shadow: 0px 5px 11px -4px rgb(0 0 0);
+    /* width: 14vw;
+    height: 10vh; */
+}
+#makeGuessButton:active {
+    position: absolute;
+    top:53%;
+}
+
+
+#hide{
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    position: absolute;
+}
+
+#nextRound{
+    position:absolute;
+    bottom: 0;
+    width:100vw;
+    height:20vh;
+    background-color:#000000;
+}
+#nextRoundButton{
+    position: absolute;
+    top:50%;
+    right:0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border:2px solid #37dbba;
+}
+#nextRoundButton:active {
+    position: absolute;
+    top:53%;
+}
+
+#endGameButton{
+    position: absolute;
+    top:50%;
+    right:0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border:2px solid #37dbba;
+}
+#endGameButton:active {
+    position: absolute;
+    top:53%;
+}
+
+
+
+@keyframes backgroundScroll {
+    from { background-position: 0 0; }
+    to { background-position: -500px 0; }
+}
+@-webkit-keyframes backgroundScroll {
+    from { background-position: 0 0; }
+    to { background-position: -500px 0; }
+}
+
+#panorama {
+    height: 88vh;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    transition: width 0.6s;
+    transition-timing-function: ease;
+    width:80vw;
+}
+.open{
+    width:80vw;
+}
+.close{
+    width: 0;
+}
+
+#playing-container{
+    width: 100vw;
+    height: 84vh;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#card{
+    position: absolute;
+    width: 100vw;
+    margin:auto;
+    height: 86vh;
+    background-color: #37dbba;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    bottom:0;
+    border-top: 3px solid black;
+}
+#map > div > div > div:nth-child(1) > div:nth-child(3) > div > div:nth-child(4) > div > div > div > div{
+    display:none;
+}
+#txt1{
+    position: absolute;
+    top: 6px;
+    left: 5vw;
+    color: white;
+    font-size: 2.2vw;
+}
+
+#txt2{
+    position: absolute;
+    top: 6vh;
+    left: 5vw;
+    color: white;
+    font-size: 2.5vw;
+}
+
+#meter{
+    border:none;
+    border-radius: 30px;
+    width:30vw;
+    box-shadow: inset -1px -1px 24px 0px rgba(0,0,0,0.75);
+    position: absolute;
+    top: 93vh;
+    left: 5vw;
+    background-color:#3f5e6370;
+}
+#progress{
+    background:#2AA990;
+    height:5vh;
+    width:0%;
+}

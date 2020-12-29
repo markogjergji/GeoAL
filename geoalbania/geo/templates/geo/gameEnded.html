@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static '/geo/favicon.ico' %}" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script type="text/javascript" src="{% static '/geo/gameEnded.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/geo/endGameStyle.css' %}">
+
+
+    <title>GeoAl</title>
+</head>
+<body>
+    <div id = "bgImage"></div>
+
+    <div id = "logo"></div>
+
+    <div id="card">
+        {% block content %}
+        <div id="nextRound">
+            <div id="txt1">Game finished!</div>
+            <div id="txt2">You got {{ totalPoints }} points.</div>
+        </div>
+        {% endblock %}
+    
+    
+    </div>
+
+    
+    <div id="tp" style="display: none;">{{ totalPoints }}</div>
+    <div id="tr" style="display: none;">{{ totalRounds }}</div>
+
+    <div id="choose">
+        <button id="goHomeButton" >Go Home</button>
+        <button id="playButton">Play Again</button>
+    </div>
+
+    <div id="meter">
+        <div id="progress"></div>
+    </div>
+    <button id="refresh" style="position: absolute;">Refresh</button>
+    
+</body>
+</html>

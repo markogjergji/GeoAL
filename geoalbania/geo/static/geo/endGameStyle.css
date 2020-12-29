@@ -1,0 +1,154 @@
+@font-face {
+    font-family: 'p5hatty';
+    src: URL('p5hatty.ttf') format('truetype');
+}
+*{
+    font-family:'p5hatty';
+}
+body{
+    overflow:hidden;
+}
+#bgImage{
+    will-change: transform;
+    background-image: url("bCity.png");
+    background-size: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    animation: backgroundScroll 50s linear infinite;
+    -webkit-animation: backgroundScroll 50s linear infinite;
+}
+#logo{
+    background-image: url(logo.png);
+    width: 18vw;
+    height: 6vw;
+    position: absolute;
+    top: 7%;
+    left: 51%;
+    background-size: 18vw 6vw;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+}
+
+#card{
+    position:absolute;
+    width:50vw;
+    background-color:black;
+    height:36vw;
+    margin:0;
+    padding:0;
+    top: 55%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius:30px;
+    border:2px solid #37dbba;
+    -webkit-box-shadow: 0px 11px 0px -4px rgba(0,0,0,0.7);
+    box-shadow: 0px 16px 20px -4px rgba(0,0,0,1.7);
+}
+#choose{
+    position:absolute;
+    top:60%;
+    width:90vw;
+    height: 9vw;
+}
+
+button{
+    border:none;
+    background-color:white;
+    padding:1.5vw 4.5vw;
+    font-size:2.5vw;
+    border-radius:40px;
+    outline: none;
+    transition: transform .05s ease-in-out,background-color .1s ease;
+}
+#goHomeButton{
+    position: absolute;
+    top:100%;
+    left: 42%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#goHomeButton:active {
+    position: absolute;
+    top:103%;
+}
+
+
+#playButton{
+    position: absolute;
+    top:100%;
+    left: 68%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#playButton:active {
+    position: absolute;
+    top:103%;
+}
+
+button:hover{
+    background-color:rgb(212, 207, 207);
+    cursor: pointer;
+}
+button:active {
+    position: absolute;
+    top:53%;
+}
+
+#nextRound{
+    position:absolute;
+    /* top: 49vw; */
+    width: 50vw;
+    top: 5vw;
+    height:70px;
+}
+#txt1{
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.2vw;
+}
+
+#txt2{
+    position: absolute;
+    top: 8vw;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3vw;
+}
+
+#meter{
+    border:none;
+    border-radius: 30px;
+    width:30vw;
+    box-shadow: inset -1px -1px 24px 0px rgba(0,0,0,0.75);
+    position: absolute;
+    top: 57vh;
+    left:35vw;
+    background-color:#3f5e6370;
+    overflow: hidden;
+}
+#progress{
+    background:#2AA990;
+    height:5vh;
+    width:0%;
+}
+
+
+@keyframes backgroundScroll {
+    from { background-position: 0 0; }
+    to { background-position: -500px 0; }
+}
+@-webkit-keyframes backgroundScroll {
+    from { background-position: 0 0; }
+    to { background-position: -500px 0; }
+}
