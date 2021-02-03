@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static '/geo/favicon.ico' %}" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    
+    <script>
+        var flag_url = "{% static '/geo/flag.png'%}";
+    </script>
+    
+    <script type="text/javascript" src="{% static '/geo/scripts/singleplayer.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/geo/styles/singleplayerStyle.css' %}">
+    <script async="false" defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPesM6wemOHMqUIG8lW6pkN1wEbyUF6pw&callback=initMap"
+    type="text/javascript"></script>
+    <title>GeoAl</title>
+</head>
+<body>
+    <div id = "bgImage"></div>
+    <div id = "topBar">
+        <div id = "logo"></div>
+        <div id = "username" class = "cards"></div>
+        <div id = "time" class = "cards"></div>
+        <div id = "round" class = "cards"></div>
+        
+    </div>
+
+    <div id="card">
+        <div id="playing-container">
+            <div id="panorama" class="open">
+                <button id="startPosition" style="display: none;"></button>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
+    <div id="makeGuess" style="display: none;">
+        <button id="makeGuessButton">Guess</button>
+    </div>
+
+    <div id="nextRound" style="display: none;">
+        <button id="nextRoundButton" style="display: none;">Next Round</button>
+        <button id="endGameButton" style="display: none;">Show Results</button>
+        <div id="txt1" style="display: none;"></div>
+        <div id="txt2" style="display: none;"></div>
+    </div>
+
+    <div id="meter" style="display: none;">
+        <div id="progress"></div>
+    </div>
+    <div id="filler"  style="display: none;"></div>
+</body>
+</html>

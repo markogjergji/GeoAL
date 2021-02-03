@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPesM6wemOHMqUIG8lW6pkN1wEbyUF6pw&callback=initMap"
+    type="text/javascript"></script>
+    <script type="text/javascript" src="{% static '/geo/singleplayer.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/geo/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Singleplayer</h1>
+    <div id="playing-container">
+       <img src="{% static '/geo/spinner.gif' %}">
+    </div>
+</body>
+</html>

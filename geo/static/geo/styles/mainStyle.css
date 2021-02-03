@@ -1,0 +1,757 @@
+@font-face {
+    font-family: 'p5hatty';
+    src: URL('../p5hatty.ttf') format('truetype');
+    text-rendering: optimizeLegibility;
+}
+
+*{
+    font-family: 'p5hatty';
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black;
+    z-index: 10;
+    overflow: hidden;
+}
+
+input:focus{
+    outline: none;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 22vw;
+    height: 1px;
+    background:white;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+    border:0.2vw solid gray;
+    z-index: 4;
+    position:absolute;
+  }
+
+input[type=range]:hover {
+    opacity: 1;
+}
+  
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3vw;
+    height: 20px;
+    background: white;
+    border:0.4vw gray solid;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+  
+#adventurer{
+    width:65vw;
+    height: auto;
+    position: relative;
+    bottom: 0;
+}
+#rectangle > img{
+    height: 4vh;
+    width:100vw;
+    position: absolute;
+    bottom: -7px;
+    float: left;
+    background-color: rgb(0, 0, 0);
+    z-index: 1;
+}
+#imgCon{
+    position: absolute;
+    right:0;
+    bottom: 0;
+    margin: -4px;
+}
+
+#bgImage{
+    will-change: transform;
+    background-image: url("../bCity.png");
+    background-size: 500px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    animation: backgroundScroll 50s linear infinite;
+    -webkit-animation: backgroundScroll 50s linear infinite;
+}
+
+/*LAMP FLAME POLE*/
+
+#lamp{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+#lamp >img{
+    position: absolute;
+    left: 17vw;
+    bottom: 33vw;
+    width: 8vw;
+    z-index: 1;
+}
+#flame{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+#flame >img{
+    position: absolute;
+    left: 17vw;
+    bottom: 37vw;
+    width: 8vw;
+    z-index: 1;
+}
+#pole{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#pole > img{
+    position: absolute;
+    left: 20vw;
+    bottom: 0;
+    height:37vw;
+}
+
+/*RIGHT SIGNS*/
+.rightSigns{
+    animation-name: enterTopSign,rotateTop;
+    animation-duration: 1s,0.7s;
+    animation-timing-function: cubic-bezier(1,0,0,1),cubic-bezier(1,0,0,1);
+    animation-delay: 0ms,800ms;
+    -webkit-animation-name: enterTopSign,rotateTop;
+    -webkit-animation-duration: 1s,0.7s;
+    -webkit-animation-timing-function: cubic-bezier(1,0,0,1),cubic-bezier(1,0,0,1);
+    -webkit-animation-delay: 0ms,800ms;
+}
+
+/*LEFT SIGNS*/
+.leftSigns{
+    animation-name: enterBottomSign,rotateBottom;
+    animation-duration: 1s,0.7s;
+    animation-timing-function: cubic-bezier(1,0,0,1),cubic-bezier(1,0,0,1);
+    animation-delay: 0ms,800ms;
+    -webkit-animation-name: enterBottomSign,rotateBottom;
+    -webkit-animation-duration: 1s,0.7s;
+    -webkit-animation-timing-function: cubic-bezier(1,0,0,1),cubic-bezier(1,0,0,1);
+    -webkit-animation-delay: 0ms,800ms;
+}
+
+
+/*BOTTOM TEXT*/
+.bottomText{
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    animation-name: enterBottomInput,rotateBottomInput;
+    animation-duration: 0.1s,0.7s;
+    animation-timing-function: cubic-bezier(1,0,0,1),cubic-bezier(1,0,0,1);
+    animation-delay: 0ms,800ms;
+    -webkit-animation-name: enterBottomInput,rotateBottomInput;
+    -webkit-animation-duration: 0.5s,0.7s;
+    -webkit-animation-timing-function: cubic-bezier(1,0,0,1),cubic-bezier(1,0,0,1);
+    -webkit-animation-delay: 0ms,800ms;
+}
+
+
+/*GEOAL SIGN*/
+
+#geoalSign > img{
+    position: absolute;
+    width: 30%;
+    left: 6vw;
+    bottom: 21vw;
+}
+
+/*ENTER USERNAME*/
+#enterSign > img{
+    width: 30vw;
+}
+#enterSign{
+    position: absolute;
+    width: 30%;
+    left: 6vw;
+    bottom: 7vw;
+}
+#enterUsername{
+    position: absolute;
+    border: none;
+    background-color: black;
+    color: rgb(194, 179, 179);
+    width: 17vw;
+    height: 4vw;
+    font-size: 3vw;
+}
+
+.fa-arrow-right{
+    color:white;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 2.5vw;
+    animation: pop 0.2s linear 1;
+    -webkit-animation: pop 0.2s linear 1;
+}
+#arrow{
+    position: absolute;
+    bottom: 32%;
+    left: 86%;
+    z-index:-5;
+}
+
+/*HOVER*/
+.fa-arrow-right:hover{
+    cursor: pointer;
+}
+#singleText{
+    cursor:pointer;
+}
+#multiText{
+    cursor:pointer;
+}
+
+/*SINGLEPLAYER*/
+
+#singleplayer{
+    position: absolute;
+    width: 32vw;
+    left: 6vw;
+    bottom: 21vw;
+}
+
+#singleplayer > img{
+    width: 30vw;
+}
+
+#singleText{
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3vw;
+    margin: 0;
+}
+
+/*MULTIPLAYER*/
+
+#multiplayer{
+    position: absolute;
+    width: 32vw;
+    left: 6vw;
+    bottom: 7vw;
+}
+
+#multiplayer > img{
+    width: 30vw;
+}
+
+#multiText{
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3vw;
+    margin: 0;
+}
+
+/*ROUNDS*/
+#roundSign{
+    position: absolute;
+
+    width: 32vw;
+    left: 6vw;
+    bottom: 21vw;
+}
+#roundSign > img{
+    width: 30vw;
+}
+#roundSign > p{
+    position: absolute;
+    top: 23%;
+    left: 10%;
+    color: white;
+    font-size: 2.5vw;
+    margin: 0;   
+}
+#roundSign > input{
+    position: absolute;
+    top: 60%;
+    left: 44%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+    margin: 0;   
+}
+
+
+/*TIME*/
+#timeSign{
+    position: absolute;
+    width: 32vw;
+    left: 6vw;
+    bottom: 7vw;
+}
+#timeSign > img{
+    width: 30vw;
+}
+#timeSign > p{
+    position: absolute;
+    top: 23%;
+    left: 10%;
+    color: white;
+    font-size: 2.5vw;
+    margin: 0;   
+}
+#timeSign > input{
+    position: absolute;
+    top: 60%;
+    left: 44%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+    margin: 0;   
+}
+
+/*START GAME*/
+#startGame{
+    position:absolute;
+  
+    width:100vw;
+    height:20vh;
+}
+#startGameButton{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border:none;
+    background-color:white;
+    padding:15px 50px;
+    font-size:30px;
+    border-radius:40px;
+    outline: none;
+    z-index: 5;
+    transition: transform .05s ease-in-out,background-color .1s ease;
+}
+#startGameButton:hover{
+    background-color:rgb(212, 207, 207);
+    cursor: pointer;
+}
+#startGameButton:active {
+    position: absolute;
+    top:53%;
+}
+/*POP ANIMATION*/
+
+@keyframes pop{
+    50%  {transform:translate(-50%, -50%) scale(1.2);}
+}
+@-webkit-keyframes pop{
+    50%  {transform:translate(-50%, -50%) scale(1.2);}
+}
+
+/*SCROLLING BACKGROUND*/
+
+@keyframes backgroundScroll {
+    from { background-position: 0 0; }
+    to { background-position: -500px 0; }
+}
+@-webkit-keyframes backgroundScroll {
+    from { background-position: 0 0; }
+    to { background-position: -500px 0; }
+}
+  
+/*ROTATE*/
+
+@keyframes rotateTop {
+    0%{transform: rotateY(0deg);}
+    100%{transform: rotateY(360deg);}
+}
+
+@-webkit-keyframes rotateTop {
+    0%{-webkit-transform:rotateY(0deg) ;}
+    100%{-webkit-transform:rotateY(360deg) ;}
+}
+
+@keyframes rotateBottom {
+    0%{transform: rotateY(0deg)}
+    100%{transform: rotateY(360deg);}
+}
+
+@-webkit-keyframes rotateBottom {
+    0%{-webkit-transform: rotateY(0deg)}
+    100%{-webkit-transform: rotateY(360deg);}
+}
+@keyframes rotateBottomInput {
+    0%{transform:translate(-50%, -50%) rotateY(0deg)}
+    100%{transform:translate(-50%, -50%) rotateY(-360deg);}
+}
+
+@-webkit-keyframes rotateBottomInput {
+    0%{-webkit-transform:translate(-50%, -50%) rotateY(0deg)}
+    100%{-webkit-transform:translate(-50%, -50%) rotateY(-360deg);}
+}
+
+/*ENTER BOTTOM*/
+
+@keyframes enterBottomSign {
+    from {position: absolute;left: -35vw;bottom: 7vw;}
+    to {position: absolute;left: 6vw;bottom: 7vw;}
+}
+@-webkit-keyframes enterBottomSign {
+    from {position: absolute;left: -35vw;bottom: 7vw;}
+    to {position: absolute;left: 6vw;bottom: 7vw;}
+}
+
+@keyframes enterBottomInput {
+    from {bottom:9vw; left: -35vw; }
+    to { top:50%; left: 45%;}
+}
+@-webkit-keyframes enterBottomInput {
+    from {bottom:9vw; left: -35vw; }
+    to { top:50%; left: 45%;}
+}
+
+/*ENTER TOP*/ 
+
+@keyframes enterTopSign {
+    from {bottom: 21vw;left: -35vw;}
+    to {bottom: 21vw;left: 6vw;}
+}
+@-webkit-keyframes enterTopSign {
+    from {bottom: 21vw; left: -35vw; }
+    to { bottom: 21vw; left: 6vw;}
+}
+
+
+@media(max-width: 1000px){
+    html{
+        position: sticky;
+        position: -webkit-sticky;
+        top:56px;
+        overflow: visible;
+    }
+    @supports (-webkit-touch-callout: none) {
+
+        .rightSigns{
+            animation-name: enterTopSign;
+            animation-duration: 1s;
+            animation-timing-function: cubic-bezier(1,0,0,1);
+            animation-delay: 0ms;
+            -webkit-animation-name: enterTopSign;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: cubic-bezier(1,0,0,1);
+            -webkit-animation-delay: 0ms;
+        }
+        
+        /*LEFT SIGNS*/
+        .leftSigns{
+            animation-name: enterBottomSign;
+            animation-duration: 1s;
+            animation-timing-function: cubic-bezier(1,0,0,1);
+            animation-delay: 0ms;
+            -webkit-animation-name: enterBottomSign;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: cubic-bezier(1,0,0,1);
+            -webkit-animation-delay: 0ms;
+        }
+        #fill{
+            display:block !important;
+            width: 100.4vw;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+            top:99%;
+            z-index: 25;
+            transform: translate3d(0,0,0);
+        }
+    }
+}
+
+@media(max-width: 500px){
+
+    html{
+        position: sticky;
+        position: -webkit-sticky;
+        top:56px;
+        overflow: visible;
+    }
+
+    input[type=range] {
+        width: 53vw;
+    }
+
+
+    #adventurer{
+        display:none;
+    }
+
+    #lamp >img{
+        left: 39.7vw;
+        bottom: 54vh;
+        width: 26vw;
+    }
+
+    #flame >img{
+        left: 33vw;
+        bottom: 59vh;
+        width: 39vw;
+    }
+
+    #pole > img{
+       left: 50vw;
+       bottom: -10px;
+       height:61vh;
+    }
+
+    .bottomText{
+       left: 124%;
+    }
+
+    #geoalSign > img{
+       width: 79%;
+       left: 13vw;
+       bottom: 35vh;
+       transform-origin: 50% 50%;
+    }
+
+    #enterSign > img{
+        width: 79vw;
+    }
+
+    #enterSign{
+       left: 13vw;
+       bottom: 12vh;
+    }
+
+    #enterUsername{
+       width: 58vw;
+       height: 11vw;
+       font-size: 7vw;
+    }
+
+    .fa-arrow-right{
+        font-size: 7vw;
+    }
+    #arrow{
+        left: 70vw;
+    }
+
+    #singleplayer{  
+        left: 13vw;
+        bottom: 35vh;
+    }
+
+    #singleplayer > img{
+        width: 79vw;
+    }
+
+    #singleText{
+       left: 124%;
+       font-size: 10vw;
+    }
+
+    #multiplayer{
+       left: 13vw;
+       bottom: 12vh;
+    }
+
+    #multiplayer > img{
+        width: 79vw;
+    }
+    #multiText{
+       left: 124%;
+       font-size: 10vw;
+    }
+
+    #roundSign{
+       width: 79vw;
+       left: 13vw;
+       bottom: 35vh;
+       transform-origin: 50% 50%;
+    }
+    #roundSign > img{
+       width: 79vw;
+    }
+
+    #roundSign > p{
+       font-size: 6vw;
+    }
+
+    #roundSign > input{
+       font-size: 10vw;
+    }
+
+    #timeSign{
+       width: 59vw;
+       left: 13vw;
+       bottom: 12vh;
+       transform-origin: 50% 50%;
+    }
+
+    #timeSign > img{
+        width: 79vw;
+    }
+
+    #timeSign > p{
+       left: 15%;
+       font-size: 6vw; 
+    }
+
+    #timeSign > input{
+       left: 59%;   
+    }
+
+    #startGame{
+        position:absolute;
+        top:5%;
+        width:100vw;
+        height:10vh;
+    }
+
+    #startGameButton{
+        font-size:18px;
+        border-radius:64px;
+        width: 48vw;
+        height: 10vh;
+        top:0 !important;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    #startGameButton:active{
+        top:3%;
+    }
+
+    #rectangle{
+        display: none;
+    }
+
+    .rightSigns{
+        transform-origin: 120% 120%;
+    }
+    .leftSigns{
+        transform-origin: 120% 120%;
+    }
+
+    @keyframes enterBottomSign {
+        from {position: absolute;left: -100vw;bottom: 12vh;}
+        to {position: absolute;left: 13vw;bottom: 12vh;}
+    }
+    @-webkit-keyframes enterBottomSign {
+        from {position: absolute;left: -100vw;bottom: 12vh;}
+        to {position: absolute;left: 13vw;bottom: 12vh;}
+    }
+    
+    @keyframes enterBottomInput {
+        from {bottom:9vw; left: -100vw; }
+        to { top:50%; left: 45%;}
+    }
+    @-webkit-keyframes enterBottomInput {
+        from {bottom:9vw; left: -100vw; }
+        to { top:50%; left: 45%;}
+    }
+
+    @keyframes enterTopSign {
+        from {bottom: 35vh;left: -100vw;}
+        to {bottom: 35vh;left: 13vw;}
+    }
+    @-webkit-keyframes enterTopSign {
+        from {bottom: 35vh; left: -100vw; }
+        to { bottom: 35vh; left: 13vw;}
+    }
+
+    @supports (-webkit-touch-callout: none) {
+        html{
+            position: absolute;
+            
+            top:60px;
+            overflow: hidden;
+        }
+        body{
+            touch-action: none;
+            -webkit-touch-action: none;
+        }
+        .rightSigns{
+            animation-name: enterTopSign;
+            animation-duration: 1s;
+            animation-timing-function: cubic-bezier(1,0,0,1);
+            animation-delay: 0ms;
+            -webkit-animation-name: enterTopSign;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: cubic-bezier(1,0,0,1);
+            -webkit-animation-delay: 0ms;
+        }
+        
+        /*LEFT SIGNS*/
+        .leftSigns{
+            animation-name: enterBottomSign;
+            animation-duration: 1s;
+            animation-timing-function: cubic-bezier(1,0,0,1);
+            animation-delay: 0ms;
+            -webkit-animation-name: enterBottomSign;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: cubic-bezier(1,0,0,1);
+            -webkit-animation-delay: 0ms;
+        }
+        
+        /*BOTTOM TEXT*/
+        .bottomText{
+            position: absolute;
+            top: 50%;
+            left: 45%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            animation-name: enterBottomInput;
+            animation-duration: 0.1s;
+            animation-timing-function: cubic-bezier(1,0,0,1);
+            animation-delay: 0ms;
+            -webkit-animation-name: enterBottomInput;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-timing-function: cubic-bezier(1,0,0,1);
+            -webkit-animation-delay: 0ms;
+        }
+
+        #fill{
+            display:block !important;
+            width: 100vw;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+            top:95%;
+            z-index: 25;
+            transform: translate3d(0,0,0);
+        }
+        .bottomText{
+            left: 40vw;
+        }
+       
+    }
+}
