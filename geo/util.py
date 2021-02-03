@@ -2,16 +2,20 @@ from django.conf import settings
 import os
 import random
 import linecache
+from django.contrib.staticfiles import finders
+
 
 
 def checkCoordinates():
-    file_path = os.path.join(settings.STATIC_ROOT, r'geo\validPoints.txt')
+    file_path = finders.find('geo/validPoints.txt')
+    g = open(file_path, "r")
     i = 0
     points = []
     while i < 5:
         line = linecache.getline(file_path, random.randint(1, 14042))
         points.append(line.rstrip("\n"))
         i = i + 1
+    g.close()
     return points
     
 
