@@ -9,5 +9,4 @@ urlpatterns = [
     path('singleplayer/', views.singleplayer, name='singleplayer'),
     path('singleplayer/roundEnd/', views.roundEnded, name='roundended'),
     path('results/', views.results, name='results'),
-    path('refresh/', views.refresh, name='refresh'),
 ]
