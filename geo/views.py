@@ -9,7 +9,6 @@ import json
 def index(request):
     request.session['inGame'] = False
     if request.method == "POST":
-        print("INDEX POST")
         request.session['coordinates'] = util.checkCoordinates()
         data = json.loads(request.body.decode("utf-8"))
         request.session['username'] = data['username']
@@ -20,9 +19,7 @@ def index(request):
         request.session['difference'] = 60000
         request.session['inGame'] = True
         request.session['gameEnded'] = False
-        print(request.session.get('coordinates'))
         return HttpResponseRedirect(reverse('singleplayer'))
-    print("INDEX GET")
     return render(request,'geo/i.html')
 
 def dif(request):
@@ -32,28 +29,20 @@ def dif(request):
     return HttpResponse('')
 
 def singleplayer(request):
-    print("SINGLEPLAYER",request.session['inGame'])
     if request.method == "POST":
-        print("SINGLEPLAYER POST")
         return JsonResponse({'username' : request.session.get('username'),'coordinates' : request.session.get('coordinates'),'rounds' : request.session.get('rounds'),'time' : request.session.get('time'),'difference' : request.session.get('difference'),'totalPoints' : request.session['totalPoints'],'totalRounds' : request.session['totalRounds'],'gameEnded' : request.session['gameEnded']})
     if request.session['inGame']:
-        print(request.session['inGame'])
-        print("SINGLEPLAYER GET")
         return render(request, 'geo/singleplayer.html')
     else:
-        print("SINGLEPLAYER GET")
         return HttpResponseRedirect(reverse('index'))
 
 def roundEnded(request):
     if request.method == "POST":
-        print(request.session['rounds'])
         data = json.loads(request.body.decode("utf-8"))
         request.session['difference'] = data['difference']
         points = util.calculateDistance(data["distance"])
         request.session['totalPoints'] += points
-        print(request.session['difference'])
         if request.session['rounds'] < request.session['totalRounds']:
-            print(request.session['rounds'])
             request.session['rounds'] = request.session['rounds'] + 1
             return JsonResponse({'points' : points , 'round' : request.session['rounds'],'difference' : request.session['difference'],'totalPoints' : request.session['totalPoints'],'gameEnded' : request.session['gameEnded']})
         else:
@@ -61,19 +50,14 @@ def roundEnded(request):
             request.session['rounds'] = 1
             tmp = request.session['totalPoints']
             request.session['gameEnded'] = True
-            """ request.session['totalPoints'] = 0 """
             return JsonResponse({'points' : points , 'round' : request.session['rounds'],'difference' : request.session['difference'],'totalPoints' : tmp,'gameEnded' : True})
 
 def results(request):
     if request.method == "POST":
-        print("RESULTS POST")
-        print("RESULTS BUTTON CLICKED")
         request.session['inGame'] = True
-        print("RESULTS BUTTON CLICKED",request.session['inGame'])
         return HttpResponse('')
     else:
         if request.session['inGame']:
-            print("RESULTS GET")
             context = {
                 'totalPoints' : request.session['totalPoints'],
                 'totalRounds' : request.session['totalRounds']
@@ -85,11 +69,4 @@ def results(request):
             request.session['gameEnded'] = False
             return render(request,'geo/gameEnded.html',context)
         else:
-            print("RESULTS GET")
             return HttpResponseRedirect(reverse('index'))
-
-def refresh(request):
-    if request.method == "POST":
-        print("refreshed")
-        for key in request.session.keys():
-            del request.session[key]
