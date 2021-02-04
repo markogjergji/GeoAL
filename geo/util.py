@@ -7,7 +7,7 @@ from django.contrib.staticfiles import finders
 
 
 def checkCoordinates():
-    file_path = os.path.join(STATIC_ROOT, r'geo\validPoints.txt')
+    file_path = os.path.join(settings.STATIC_ROOT, r'geo\validPoints.txt')
     g = open(file_path, "r")
     i = 0
     points = []
